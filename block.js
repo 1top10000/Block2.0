@@ -450,7 +450,7 @@ const LibraryCreator = {
         if (typeof useWebGL == "undefined") {
             updateCategory(category)
             // 아이콘 적용
-            $('head').append(`<style>#entryCategory${category}{background-image:url(찐svg파일);background-repeat:no-repeat;margin-bottom:1px}.entrySelectedCategory#entryCategory${category}{background-image:url(가짜svg파일);background-color:#8c22e3; color:#fff}</style>`)
+            $('head').append(`<style>#entryCategory${category}{background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img0.svg);background-repeat:no-repeat;margin-bottom:1px}.entrySelectedCategory#entryCategory${category}{background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg);background-color:#8c22e3; color:#fff}</style>`)
             // 카테고리 이름 적용
             $(`#entryCategory${category}`).append(text)
         }
