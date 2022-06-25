@@ -1,4 +1,4 @@
-Block2.0
+# Block2.0
 엔트리 비공식 블록입니다.
 EntSave,StrongBlock을 참고했습나다.
 콘솔 입력:
