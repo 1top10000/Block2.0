@@ -1,9 +1,9 @@
+# 만드는중..
 # Block2.0
 엔트리 비공식 블록입니다.
+Block2.0은 EntSave,StrongBlock, SpecialBlock, ExpressBlock을 참고해서 만들었습니다.
 
-EntSave,StrongBlock을 참고했습나다.
-
-콘솔 입력:
+콘솔 입력:???
 
 수정 가능
 
