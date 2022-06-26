@@ -1,84 +1,30 @@
-//Block2.0은 EntSave,StrongBlock을 참고해서 만들었습니다.
+//Block2.0은 EntSave,StrongBlock, SpecialBlock, ExpressBlock을 참고해서 만들었습니다.
 const Blockcolor = '#00CC66';
+const Blockcolor2 = '#00af57';
 const getcolor = '#373737';
 
 const blocks = [
-    {
-        name: 'set_color_HEX',
-        template: "붓 색깔 지정 %1 %2",
-        skeleton: "basic",
-        color: {
-            default: Blockcolor
-        },
-        params: [
-            {
-                type: "Block",
-                accept: "string",
-                value: "#FFFFFF"
-            },
-            {
-                type: 'Indicator',
-                img: 'block_icon/hardware_icon.svg',
-                size: 11,
-            }
-        ],
-        def: [],
-        map: {
-            VALUE: 0
-        },
-        class: "Block2.0",
-        func: async (sprite, script) => {
-
-            if (!sprite.brush || !sprite.shapes.length) {
-                Entry.setBasicBrush(sprite);
-                sprite.brush.stop = true;
-            }
-
-            if (sprite.brush) {
-                const rgb = Entry.hex2rgb(VALUE);
-                sprite.brush.rgb = rgb;
-                sprite.brush.endStroke();
-                sprite.brush.beginStroke(
-                    `rgba(${rgb.r},${rgb.g},${rgb.b},${1 - sprite.brush.opacity / 100})`
-                );
-
-                sprite.brush.moveTo(sprite.getX(), sprite.getY() * -1);
-            }
-            return script.callReturn();
-        }
-    },
     {
         name: 'calc_pow',
         template: '%1 ^ %2',
         skeleton: "basic_string_field",
         color: {
-            default: Blockcolor
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2 //RGB 색깔
         },
         params: [
             {
                 type: 'Block',
                 accept: 'string',
-                defaultType: 'number',
+                value: '10'
             },
             {
                 type: 'Block',
                 accept: 'string',
-                defaultType: 'number',
+                value: '3'
             },
         ],
-        def: [
-            params: [
-                {
-                    type: "number",
-                    params: ["10"]
-                },
-                {
-                    type: "number",
-                    params: ["3"]
-                }
-            ],
-            type: 'calc_pow',
-        ],
+        def: [],
         map: {
             LEFTHAND: 0,
             RIGHTHAND: 1,
@@ -89,7 +35,7 @@ const blocks = [
             const rightValue = script.getNumberValue("RIGHTHAND", script);
             return Math.pow(leftValue, rightValue);
         }
-    }
+    },
 ]
 
 
@@ -458,5 +404,6 @@ const LibraryCreator = {
 }
 let blockPOST
 alert('Block2.0을 설치합니다.')
+document.title = "Block2.0";
 LibraryCreator.start(blocks, 'API', 'Block2.0')
 alert("Block2.0설치가 완료되었습니다!")
