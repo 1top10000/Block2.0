@@ -80,7 +80,7 @@ const blocks = [    // 블록 만들기
                 type: 'text',
                 params: ['뭐']
             },
-            null
+            null,
         ],
         map: {
             V: 0
@@ -102,13 +102,13 @@ const blocks = [    // 블록 만들기
         params: [
             {
                 type: 'Block',
-                accept: 'string'
+                accept: 'string',
             },
         ],
         def: [
             {
                 type: 'text',
-                params: ['뭐']
+                params: ['뭐'],
             },
         ],
         map: {
@@ -126,12 +126,12 @@ const blocks = [    // 블록 만들기
         skeleton: "basic",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2 //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
         },
         params: [
             {
                 type: 'Block',
-                accept: 'string'
+                accept: 'string',
             },
             {
                 type: 'Indicator',
@@ -142,12 +142,12 @@ const blocks = [    // 블록 만들기
         def: [
             {
                 type: 'text',
-                params: ['https://github.com/1top10000/Block2.0/']
+                params: ['https://github.com/1top10000/Block2.0/'],
             },
-            null
+            null,
         ],
         map: {
-            V: 0
+            V: 0,
         },
         class: "Block2.0",
         func: async (sprite, script) => {
@@ -168,12 +168,12 @@ const blocks = [    // 블록 만들기
                 type: 'Text',
                 text: 'top10000이 만든 블록 끝.',
                 color: EntryStatic.colorSet.common.TEXT,
-                align: 'center'
+                align: 'center',
             }
         ],
         def: [],
         map: {},
-        class: 'text'
+        class: 'text',
     },  //text
 ]
 
