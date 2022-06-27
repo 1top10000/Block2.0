@@ -71,7 +71,7 @@ const blocks = [    // 블록 만들기
             },
             {
                 type: 'Indicator',
-                img: 'https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg',  //이미지 링크
+                img: 'https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg',
                 size: 11,
             }
         ],
@@ -87,7 +87,7 @@ const blocks = [    // 블록 만들기
         },
         class: "Block2.0",
         func: async (sprite, script) => {
-            alert(script.getValue(V, script));
+            alert(script.getValue("V", script));
             return script.callReturn();
         }
     },
@@ -116,7 +116,7 @@ const blocks = [    // 블록 만들기
         },
         class: "Block2.0",
         func: async (sprite, script) => {
-            const value = script.getValue(V, script);
+            const value = script.getValue("V", script);
             return confirm(value);
         }
     },
@@ -135,7 +135,7 @@ const blocks = [    // 블록 만들기
             },
             {
                 type: 'Indicator',
-                img: 'https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg',  //이미지 링크
+                img: 'https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg',
                 size: 11,
             }
         ],
@@ -151,7 +151,7 @@ const blocks = [    // 블록 만들기
         },
         class: "Block2.0",
         func: async (sprite, script) => {
-            open(script.getValue(V, script));
+            open(script.getValue("V", script));
             return script.callReturn();
         }
     },
