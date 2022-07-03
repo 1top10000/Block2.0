@@ -223,7 +223,7 @@ const blocks = [    // 블록 만들기
         }
     },
     {
-        name: '3D_X',
+        name: '3D_Y',
         template: '3D를 2D로 변환(2D Y좌표) 3D X: %1 Y: %2 Z: %3 시점 X: %4 시점 Y: %5 크기: %6',
         skeleton: "basic_string_field",
         color: {
