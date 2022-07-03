@@ -71,7 +71,7 @@ const blocks = [    // 블록 만들기
             },
             {
                 type: 'Indicator',
-                img: 'https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg',
+                img: 'block_icon/hardware_icon.svg',
                 size: 11,
             }
         ],
@@ -80,14 +80,14 @@ const blocks = [    // 블록 만들기
                 type: 'text',
                 params: ['뭐']
             },
-            null,
+            null
         ],
         map: {
             V: 0
         },
         class: "Block2.0",
         func: async (sprite, script) => {
-            alert(script.getValue("V", script));
+            alert(script.getValue(V, script));
             return script.callReturn();
         }
     },
@@ -102,13 +102,13 @@ const blocks = [    // 블록 만들기
         params: [
             {
                 type: 'Block',
-                accept: 'string',
+                accept: 'string'
             },
         ],
         def: [
             {
                 type: 'text',
-                params: ['뭐'],
+                params: ['뭐']
             },
         ],
         map: {
@@ -116,7 +116,7 @@ const blocks = [    // 블록 만들기
         },
         class: "Block2.0",
         func: async (sprite, script) => {
-            const value = script.getValue("V", script);
+            const value = script.getValue(V, script);
             return confirm(value);
         }
     },
@@ -126,33 +126,171 @@ const blocks = [    // 블록 만들기
         skeleton: "basic",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2, //RGB 색깔
+            darken: Blockcolor2 //RGB 색깔
         },
         params: [
             {
                 type: 'Block',
-                accept: 'string',
+                accept: 'string'
             },
             {
                 type: 'Indicator',
-                img: 'https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg',
+                img: 'block_icon/hardware_icon.svg',
                 size: 11,
             }
         ],
         def: [
             {
                 type: 'text',
-                params: ['https://github.com/1top10000/Block2.0/'],
+                params: ['https://github.com/1top10000/Block2.0/']
             },
-            null,
+            null
         ],
         map: {
-            V: 0,
+            V: 0
         },
         class: "Block2.0",
         func: async (sprite, script) => {
-            open(script.getValue("V", script));
+            open(script.getValue(V, script));
             return script.callReturn();
+        }
+    },
+    {
+        name: '3D_X',
+        template: '3D를 2D로 변환(2D X좌표) 3D X: %1 Y: %2 Z: %3 시점 X: %4 시점 Y: %5 크기: %6',
+        skeleton: "basic_string_field",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2 //RGB 색깔
+        },
+        params: [
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+        ],
+        def: [],
+        map: {
+            X: 0,
+            Y: 1,
+            Z: 2,
+            CX: 3,
+            CY: 4,
+            S: 5,
+        },
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            let XV = script.getNumberValue('X', script);
+            let YV = script.getNumberValue('Y', script);
+            let ZV = script.getNumberValue('Z', script);
+
+            let CXV = script.getNumberValue('CX', script);
+            let CYV = script.getNumberValue('CY', script);
+
+            let SV = script.getNumberValue('S', script);
+
+            const X1 = math.cos(CXV) * XV;
+            const X2 = math.sin(CXV) * YV;
+            const X3 = X1 - X2;
+            const xpos = X3 * SV;
+            return xpos;
+        }
+    },
+    {
+        name: '3D_X',
+        template: '3D를 2D로 변환(2D Y좌표) 3D X: %1 Y: %2 Z: %3 시점 X: %4 시점 Y: %5 크기: %6',
+        skeleton: "basic_string_field",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2 //RGB 색깔
+        },
+        params: [
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '0'
+            },
+        ],
+        def: [],
+        map: {
+            X: 0,
+            Y: 1,
+            Z: 2,
+            CX: 3,
+            CY: 4,
+            S: 5,
+        },
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            let XV = script.getNumberValue('X', script);
+            let YV = script.getNumberValue('Y', script);
+            let ZV = script.getNumberValue('Z', script);
+
+            let CXV = script.getNumberValue('CX', script);
+            let CYV = script.getNumberValue('CY', script);
+
+            let SV = script.getNumberValue('S', script);
+
+            const Y1 = math.cos(CYV);
+            const Y2 = math.cos(CXV) * YV;
+            const Y3 = math.sin(CXV) * XV;
+            const Y4 = math.sin(CYV) * ZV;
+            const Y5 = Y2 + Y3;
+            const Y6 = Y1 * Y5;
+            const Y7 = Y6 + Y4;
+            const ypos = Y7 * SV;
+            return ypos;
         }
     },
     {
@@ -168,12 +306,12 @@ const blocks = [    // 블록 만들기
                 type: 'Text',
                 text: 'top10000이 만든 블록 끝.',
                 color: EntryStatic.colorSet.common.TEXT,
-                align: 'center',
+                align: 'center'
             }
         ],
         def: [],
         map: {},
-        class: 'text',
+        class: 'text'
     },  //text
 ]
 
