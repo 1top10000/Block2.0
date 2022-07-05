@@ -2,6 +2,7 @@
 const Blockcolor = '#00FF98';  //블록색깔
 const Blockcolor2 = '#008844'; //어두운 블록색깔
 const getcolor = '#373737';
+const fontColor = '#000000';
 
 const blocks = [    // 블록 만들기
     {
@@ -30,7 +31,8 @@ const blocks = [    // 블록 만들기
         skeleton: "basic_string_field",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2 //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -58,11 +60,12 @@ const blocks = [    // 블록 만들기
     },
     {
         name: 'calc_exp',
-        template: '%1 exp(지수함수?)',
+        template: '%1 exp',
         skeleton: "basic_string_field",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2 //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -83,11 +86,12 @@ const blocks = [    // 블록 만들기
     },
     {
         name: 'calc_pi',
-        template: '%1 ^ %2',
-        skeleton: "파이값",
+        template: '파이깂',
+        skeleton: "basic_string_field",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2 //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
         },
         params: [],
         def: [],
@@ -98,12 +102,30 @@ const blocks = [    // 블록 만들기
         }
     },
     {
-        name: 'null',
-        template: '%1 ^ %2',
-        skeleton: "닐값(없는값(null))",
+        name: 'inf',
+        template: '무한',
+        skeleton: "basic_string_field",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2 //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
+        },
+        params: [],
+        def: [],
+        map: {},
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            return 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
+        }
+    },
+    {
+        name: 'null',
+        template: '닐값(없는값(null))',
+        skeleton: "basic_string_field",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
         },
         params: [],
         def: [],
@@ -119,7 +141,8 @@ const blocks = [    // 블록 만들기
         skeleton: "basic",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2 //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -149,7 +172,8 @@ const blocks = [    // 블록 만들기
         skeleton: "basic_boolean_field",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2 //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -174,7 +198,8 @@ const blocks = [    // 블록 만들기
         skeleton: "basic",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2 //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -204,7 +229,8 @@ const blocks = [    // 블록 만들기
         skeleton: "basic",
         color: {
             default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2 //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -282,6 +308,54 @@ const blocks = [    // 블록 만들기
             if (sprite.brush && !sprite.brush.stop) {
                 sprite.brush.lineTo(sprite.getX(), sprite.getY() * -1);
             }
+            return script.callReturn();
+        }
+    },
+    {
+        name: 'set_color',
+        template: '붓 색깔 지정 %1 %2',
+        skeleton: "basic",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+            fontColor: fontColor, //RGB 색깔
+        },
+        params: [
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '#000000',
+            },
+            {
+                type: 'Indicator',
+                img: 'block_icon/brush_icon.svg',
+                size: 11,
+            }
+        ],
+        def: [],
+        map: {
+            V: 0
+        },
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            const colour = script.getField('V', script);
+
+            if (!sprite.brush || !sprite.shapes.length) {
+                Entry.setBasicBrush(sprite);
+                sprite.brush.stop = true;
+            }
+
+            if (sprite.brush) {
+                const rgb = Entry.hex2rgb(colour);
+                sprite.brush.rgb = rgb;
+                sprite.brush.endStroke();
+                sprite.brush.beginStroke(
+                    `rgba(${rgb.r},${rgb.g},${rgb.b},${1 - sprite.brush.opacity / 100})`
+                );
+
+                sprite.brush.moveTo(sprite.getX(), sprite.getY() * -1);
+            }
+
             return script.callReturn();
         }
     },
@@ -611,8 +685,8 @@ const LibraryCreator = {    //필수
                 { category: 'analysis', visible: true },
                 { category: 'ai_utilize', visible: true },
                 { category: 'expansion', visible: true },
+                { category: category, visible: true },
                 { category: 'arduino', visible: true },
-                { category: category, visible: true }
             ]);
             for (let i = 0; i < $('.entryCategoryElementWorkspace').length; i++) {
                 if (!($($('.entryCategoryElementWorkspace')[i]).attr('id') == "entryCategorytext")) {
@@ -665,7 +739,7 @@ const LibraryCreator = {    //필수
         if (typeof useWebGL == "undefined") {
             updateCategory(category)
             // 아이콘 적용
-            $('head').append(`<style>#entryCategory${category}{background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img0.svg);background-repeat:no-repeat;margin-bottom:1px}.entrySelectedCategory#entryCategory${category}{background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg);background-color:#00FF98; color:#fff}</style>`)  //블록 이미지 & 블록 꾸러미 색 설정
+            $('head').append(`<style>#entryCategory${category}{background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img0.svg);background-repeat:no-repeat;margin-bottom:1px}.entrySelectedCategory#entryCategory${category}{background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg);background-color:#00FF98; color:#000000}</style>`)  //블록 이미지 & 블록 꾸러미 색 설정
             // 카테고리 이름 적용
             $(`#entryCategory${category}`).append(text)
         }
