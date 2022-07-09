@@ -1,8 +1,7 @@
 //Block2.0은 EntSave,StrongBlock, SpecialBlock, ExpressBlock을 참고해서 만들었습니다.
-const Blockcolor = '#00FF98';  //블록색깔
-const Blockcolor2 = '#008844'; //어두운 블록색깔
+const Blockcolor = '#0079c0';  //블록색깔
+const Blockcolor2 = '#003655'; //어두운 블록색깔
 const getcolor = '#373737';
-const fontColor = '#000000';
 
 const blocks = [    // 블록 만들기
     {
@@ -32,7 +31,6 @@ const blocks = [    // 블록 만들기
         color: {
             default: Blockcolor, //RGB 색깔
             darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -65,7 +63,6 @@ const blocks = [    // 블록 만들기
         color: {
             default: Blockcolor, //RGB 색깔
             darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -91,7 +88,6 @@ const blocks = [    // 블록 만들기
         color: {
             default: Blockcolor, //RGB 색깔
             darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
         },
         params: [],
         def: [],
@@ -108,7 +104,6 @@ const blocks = [    // 블록 만들기
         color: {
             default: Blockcolor, //RGB 색깔
             darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
         },
         params: [],
         def: [],
@@ -125,7 +120,6 @@ const blocks = [    // 블록 만들기
         color: {
             default: Blockcolor, //RGB 색깔
             darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
         },
         params: [],
         def: [],
@@ -142,7 +136,6 @@ const blocks = [    // 블록 만들기
         color: {
             default: Blockcolor, //RGB 색깔
             darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -167,13 +160,43 @@ const blocks = [    // 블록 만들기
         }
     },
     {
+        name: 'error',
+        template: '오류 만들기%1',
+        skeleton: "basic",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+        },
+        params: [
+            {
+                type: 'Indicator',
+                img: 'block_icon/hardware_icon.svg',
+                size: 11,
+            },
+            {
+                type: '오류?',
+                accept: '오류?',
+                value: '오류?,',
+                error_error: "오류"
+            },
+        ],
+        def: [],
+        map: {},
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            const aa = script.getValue("오류!", script);
+            const aa = script.getValue("오류!", script);
+            const aa = script.getValue("오류!", script);
+            return script.callReturn();
+        }
+    },
+    {
         name: 'confirm',
         template: '%1 라고 질문하기',
         skeleton: "basic_boolean_field",
         color: {
             default: Blockcolor, //RGB 색깔
             darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -199,7 +222,6 @@ const blocks = [    // 블록 만들기
         color: {
             default: Blockcolor, //RGB 색깔
             darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
@@ -224,101 +246,12 @@ const blocks = [    // 블록 만들기
         }
     },
     {
-        name: '3D',
-        template: 'X: %1 Y: %2 Z: %3 시점 X: %4 시점 Y: %5 크기: %6 으로 이동%7',
-        skeleton: "basic",
-        color: {
-            default: Blockcolor, //RGB 색깔
-            darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
-        },
-        params: [
-            {
-                type: 'Block',
-                accept: 'string',
-                value: '0'
-            },
-            {
-                type: 'Block',
-                accept: 'string',
-                value: '0'
-            },
-            {
-                type: 'Block',
-                accept: 'string',
-                value: '0'
-            },
-            {
-                type: 'Block',
-                accept: 'string',
-                value: '0'
-            },
-            {
-                type: 'Block',
-                accept: 'string',
-                value: '0'
-            },
-            {
-                type: 'Block',
-                accept: 'string',
-                value: '0'
-            },
-            {
-                type: 'Indicator',
-                img: 'block_icon/moving_icon.svg',
-                size: 11,
-            },
-        ],
-        def: [],
-        map: {
-            X: 0,
-            Y: 1,
-            Z: 2,
-            CX: 3,
-            CY: 4,
-            S: 5,
-        },
-        class: "Block2.0",
-        func: async (sprite, script) => {
-            let XV = script.getNumberValue('X', script);
-            let YV = script.getNumberValue('Y', script);
-            let ZV = script.getNumberValue('Z', script);
-
-            let CXV = script.getNumberValue('CX', script);
-            let CYV = script.getNumberValue('CY', script);
-
-            let SV = script.getNumberValue('S', script);
-
-            const X1 = math.cos(CXV).dividedBy(XV).toNumber();
-            const X2 = math.cos(CXV).dividedBy(YV).toNumber();
-            const X3 = X1.minus(X2).toNumber();
-            const xpos = X3.dividedBy(SV).toNumber();
-
-            const Y1 = math.cos(CYV);
-            const Y2 = math.cos(CXV).dividedBy(YV).toNumber();
-            const Y3 = math.sin(CXV).dividedBy(XV).toNumber();
-            const Y4 = math.sin(CYV).dividedBy(ZV).toNumber();
-            const Y5 = Y2.plus(Y3).toNumber();
-            const Y6 = Y1.dividedBy(Y5).toNumber();
-            const Y7 = Y6.plus(Y4).toNumber();
-            const ypos = Y7.dividedBy(SV).toNumber();
-
-            sprite.setX(xpos);
-            sprite.setY(ypos);
-            if (sprite.brush && !sprite.brush.stop) {
-                sprite.brush.lineTo(sprite.getX(), sprite.getY() * -1);
-            }
-            return script.callReturn();
-        }
-    },
-    {
-        name: 'set_color',
+        name: 'color_hex',
         template: '붓 색깔 지정 %1 %2',
         skeleton: "basic",
         color: {
             default: Blockcolor, //RGB 색깔
             darken: Blockcolor2, //RGB 색깔
-            fontColor: fontColor, //RGB 색깔
         },
         params: [
             {
