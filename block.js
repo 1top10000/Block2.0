@@ -124,6 +124,54 @@ const blocks = [    // 블록 만들기
         }
     },
     {
+        name: 'ddddd',
+        template: '%1 진수를 %2진수로 변환 (값:%3)',
+        skeleton: "basic_string_field",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+        },
+        params: [
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '10'
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '10'
+
+            },
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '485'
+            },
+        ],
+        def: [],
+        map: {
+            V1: 0,
+            V2: 0,
+            V3: 0,
+        },
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            const V1 = script.getNumberValue("V1", script);
+            const V2 = script.getNumberValue("V2", script);
+            const V3 = script.getNumberValue("V3", script);
+            if (V1 <= 36) {
+                if (V2 <= 36) {
+                    return parseInt(V3, V1).toString(V2);
+                } else {
+                    return 0
+                }
+            } else {
+                return 0
+            }
+        }
+    },
+    {
         name: 'calc_exp',
         template: '%1 exp',
         skeleton: "basic_string_field",
