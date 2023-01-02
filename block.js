@@ -124,8 +124,8 @@ const blocks = [    // 블록 만들기
         }
     },
     {
-        name: 'ddddd',
-        template: '%1 진수를 %2진수로 변환 (값:%3)',
+        name: 'B',
+        template: '%1진수를 %2진수로 변환 (변환할 수:%3)',
         skeleton: "basic_string_field",
         color: {
             default: Blockcolor, //RGB 색깔
@@ -140,7 +140,7 @@ const blocks = [    // 블록 만들기
             {
                 type: 'Block',
                 accept: 'string',
-                value: '10'
+                value: '16'
 
             },
             {
@@ -152,22 +152,18 @@ const blocks = [    // 블록 만들기
         def: [],
         map: {
             V1: 0,
-            V2: 0,
-            V3: 0,
+            V2: 1,
+            V3: 2,
         },
         class: "Block2.0",
         func: async (sprite, script) => {
             const V1 = script.getNumberValue("V1", script);
             const V2 = script.getNumberValue("V2", script);
             const V3 = script.getNumberValue("V3", script);
-            if (V1 <= 36) {
-                if (V2 <= 36) {
-                    return parseInt(V3, V1).toString(V2);
-                } else {
-                    return 0
-                }
+            if (V1 <= 36 && V2 <= 36 ) {
+                return parseInt(V3, V1).toString(V2);
             } else {
-                return 0
+                return NaN
             }
         }
     },
@@ -198,7 +194,7 @@ const blocks = [    // 블록 만들기
     },
     {
         name: 'calc_pi',
-        template: '파이깂',
+        template: '파이값',
         skeleton: "basic_string_field",
         color: {
             default: Blockcolor, //RGB 색깔
@@ -210,6 +206,38 @@ const blocks = [    // 블록 만들기
         class: "Block2.0",
         func: async (sprite, script) => {
             return Math.PI;
+        }
+    },
+    {
+        name: 'FPS',
+        template: 'FPS',
+        skeleton: "basic_string_field",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+        },
+        params: [],
+        def: [],
+        map: {},
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            return timeValue * Entry.FPS;
+        }
+    },
+    {
+        name: 'NaN',
+        template: 'NaN',
+        skeleton: "basic_string_field",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+        },
+        params: [],
+        def: [],
+        map: {},
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            return NaN;
         }
     },
     {
@@ -340,6 +368,36 @@ const blocks = [    // 블록 만들기
         class: "Block2.0",
         func: async (sprite, script) => {
             copy(script.getValue('V', script));
+            return script.callReturn();
+        }
+    },
+    {
+        name: 'eval',
+        template: '%1명령어 실행하기%2',
+        skeleton: "basic",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+        },
+        params: [
+            {
+                type: 'Block',
+                accept: 'string',
+                value: 'alert("안녕!")',
+            },
+            {
+                type: 'Indicator',
+                img: 'block_icon/hardware_icon.svg',
+                size: 11,
+            }
+        ],
+        def: [],
+        map: {
+            V: 0
+        },
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            eval(script.getValue('V', script));
             return script.callReturn();
         }
     },
