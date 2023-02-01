@@ -209,8 +209,24 @@ const blocks = [    // 블록 만들기
         }
     },
     {
+        name: 'time',
+        template: '지금 시간 (출처:https://playentry.org/project/60e028df2629ed0f26e74471)',
+        skeleton: "basic_string_field",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+        },
+        params: [],
+        def: [],
+        map: {},
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            return Math.floor(new Date().getTime() / 1000.0);
+        }
+    },
+    {
         name: 'FPS',
-        template: 'FPS',
+        template: 'FPS (이상함)',
         skeleton: "basic_string_field",
         color: {
             default: Blockcolor, //RGB 색깔
