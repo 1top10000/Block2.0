@@ -123,6 +123,7 @@ const blocks = [    // 블록 만들기
             return g.charCodeAt(0).toString(16);
         }
     },
+    {
         name: 'ut',
         template: '%1 유니코드 > 글자',
         skeleton: "basic_string_field",
