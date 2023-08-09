@@ -99,6 +99,55 @@ const blocks = [    // 블록 만들기
         }
     },
     {
+        name: 'tu',
+        template: '%1 글자 > 유니코드',
+        skeleton: "basic_string_field",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+        },
+        params: [
+            {
+                type: 'Block',
+                accept: 'string',
+                value: '뀨'
+            },
+        ],
+        def: [],
+        map: {
+            t: 0,
+        },
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            const g = script.getValue("t", script);
+            return g.charCodeAt(0).toString(16);
+        }
+    },
+        name: 'ut',
+        template: '%1 유니코드 > 글자',
+        skeleton: "basic_string_field",
+        color: {
+            default: Blockcolor, //RGB 색깔
+            darken: Blockcolor2, //RGB 색깔
+        },
+        params: [
+            {
+                type: 'Block',
+                accept: 'string',
+                value: 'AC00'
+            },
+        ],
+        def: [],
+        map: {
+            t: 0,
+        },
+        class: "Block2.0",
+        func: async (sprite, script) => {
+            const g = script.getValue("t", script);
+            return String.fromCharCode(parseInt(g,16));
+        }
+    },
+    {
         name: 'calc_deg',
         template: '%1 라디안을 도로 변환',
         skeleton: "basic_string_field",
