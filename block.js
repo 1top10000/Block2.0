@@ -841,4 +841,7 @@ let blockPOST
 alert('Block2.0을 설치합니다.')
 document.title = "Block2.0"; //블록꾸러미 이름 성정.
 LibraryCreator.start(blocks, 'API', 'Block2.0')  //블록설치. 블록꾸러미 이름 설정.
-alert("Block2.0설치가 완료되었습니다!")
+const TempExportedProject = Entry.exportProject();
+Entry.clearProject();
+Entry.loadProject(TempExportedProject);
+alert("Block2.0설치가 완료되었습니다!");
