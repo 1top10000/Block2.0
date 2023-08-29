@@ -5,7 +5,7 @@ Block2.0은 EntSave,StrongBlock, SpecialBlock, ExpressBlock을 참고해서 만�
 
 저장기능 있음. 아마도..
 
-콘솔 입력:$.get('https://raw.githack.com/1top10000/Block2.0/main/block.js')
+작품 만들기에서 콘솔 입력:$.get('https://raw.githack.com/1top10000/Block2.0/main/block.js')
 
 수정 가능
 
