@@ -3,7 +3,6 @@
 엔트리 비공식 블록입니다.  <br>
 Block2.0은 EntSave,StrongBlock, SpecialBlock, ExpressBlock을 참고해서 만들었습니다.<br>
 이름이 block2.0인 이유는 엔트리에는 없는 2의 다른 블럭이라서 그런겁니다!!  <br>
-저장기능 by hyunye
 엔트리 리뉴얼 후 최초 작품 보기 창에서 작동 구현!! <br>
 
 
