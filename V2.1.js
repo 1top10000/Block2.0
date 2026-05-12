@@ -666,7 +666,7 @@ const blocks = [// 블록 만들기
         map: {},
         class: 'text'
     }, //text
-]
+];
 
 class _block_ {
     constructor(e) {
@@ -730,7 +730,10 @@ let blockPOST
 alert('Block2.0을 설치합니다.');
 try {
     start(blocks, 'Block2.0');
-	} catch (exception) {} finally {}
+} catch (exception) {
+    console.error(exception);
+    alert(exception);
+}
 const TempExportedProject = Entry.exportProject();
 Entry.clearProject();
 Entry.loadProject(TempExportedProject);
