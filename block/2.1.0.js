@@ -1,4 +1,4 @@
-window["Block2.0"]["2.1.0"] = {
+return {
     block: () => {
         return [
             {
@@ -473,7 +473,7 @@ window["Block2.0"]["2.1.0"] = {
                 }
             },
             {
-                name: 'setScaleXY',
+                name: 'block2.0_XY',
                 template: '나의 %1 크기를 %2 으로 정하기%3',
                 skeleton: "basic",
                 color: {
@@ -522,7 +522,7 @@ window["Block2.0"]["2.1.0"] = {
                 }
             },
             {
-                name: 'Valuemove',
+                name: 'block2.0_ValueXY0',
                 template: '%1 변수를 X: %2 Y: %3 위치로 이동하기 %4',
                 skeleton: "basic",
                 color: {
@@ -711,5 +711,32 @@ window["Block2.0"]["2.1.0"] = {
         //block2.0_guc (%1) > (%1, %2=16)
         //block2.0_cgup (%1) > (%2=16, %1)
         //
-    }
+    },
+    obst: [
+        [
+            ["block2.0_calc_pow", "Math.pow"],
+            ["block2.0_calc_rad", "라디안 변환"],
+            ["block2.0_getsize", "xy크기"],
+            ["block2.0_guc", "유니코드 변환"],
+            ["block2.0_cgup", "유니코드를 글자로 변환"],
+            ["block2.0_calc_deg", "도 변환"],
+            ["block2.0_B", "진법 변환"],
+            ["block2.0_calc_exp", "지수함수"],
+            ["block2.0_csonse", "값"] //암호화 추가
+        ],
+        [
+            ["block2.0_XY", "크기 조절"],
+            ["block2.0_ValueXY0", "변수 위치 변경"],
+            ["block2.0_Stoppause", "정지와 일시정지"] //변수V2.0
+        ],
+        [
+            ["block2.0_alert", "alert"],
+            ["block2.0_confirm", "confirm"] //토스트 추가
+        ],
+        [
+            ["block2.0_open", "새 창 열기"],
+            ["block2.0_copy", "복사하기"],
+            ["block2.0_eval", "명령어실행"]
+        ]
+    ]
 };
