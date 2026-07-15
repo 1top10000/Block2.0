@@ -9,7 +9,7 @@
         }
         #k_ps16 {
             width: 390px;
-            height: 420px;
+            height: 430px;
             background-color: #f0f0f0;
             position: absolute;
             display: grid;
@@ -40,7 +40,7 @@
         }
         #k_9uh3 {
             width: 90%;
-            height: 330px;
+            height: 292px;
             background-color: transparent;
             border-top: 1px solid #000000;
             border-bottom: 1px solid #000000;
@@ -57,6 +57,13 @@
         }
         .k_bfu2 {
             text-indent: 10px;
+        }
+        #k_97gf {
+            background-color: #6b3a0f;
+            width: 58%;
+            height: 38px;
+            border-radius: 6px;
+            font-size: 16px;
         }
         </style>
 </head>
@@ -75,6 +82,7 @@
             <div id="k2_wx6v" class="k_wx6v" style="display: none;"></div>
             <div id="k3_wx6v" class="k_wx6v" style="display: none;"></div>
         </section>
+        <button id="k_97gf" onclick="window.parent.postMessage('block2.0_feolsb:' + feols.b(), location.origin);">확인</button>
         <script>
             const e_53r3 = [
                 document.querySelector('#e0_53r3'),
@@ -136,24 +144,31 @@
                     ch.innerHTML = '<lable><input type="checkbox" class="k_bu7s" id="k_roQ_' + z + '" ' + v + ' />' + x + '</lable>';
                     document.querySelector('#k' + c + '_wx6v').appendChild(ch);
                 },
-                b: (z) => {
-                    const ch = document.querySelector('#k_roQ_' + z);
-                    if (ch) {
-                        return ch.checked;
-                    } else {
-                        return false;
-                    }
+                b: () => {
+                    /* yiy */
+                    return "lghqep%i" + JSON.stringify(arr.map((z) => {
+                        const ch = document.body.querySelector("[id='k_roQ_" + z + "']");
+                        if (ch) {
+                            return [z, ch.checked];
+                        } else {
+                            return [z, false];
+                        }
+                    }));
                 }
             };
-            window.addEventListener("message", (event) => {
-                let ta = event.data.split(':');
+            /*window.addEventListener("message", (E0) => {
+                console.log(E0.origin, E0.data, E0.source);
+                
+                let ta = E0.data.split(':');
                 if (ta[0] === "block2.0_feolsa") {
                     feols.a(ta[1], ta[2], ta[3], ta[4]);
                 } else if (ta[0] === "block2.0_feolsb") {
                     let res = feols.b(ta[1]);
                     window.parent.postMessage("block2.0_feolsb:" + res, "*");
                 }
-            });
+                
+            }, false);*/
+            /* gfg */
         </script>
     </div>
 </body>

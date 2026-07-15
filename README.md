@@ -15,5 +15,5 @@ Block2.0은 EntSave,StrongBlock, SpecialBlock, ExpressBlock을 참고해서 만�
 공유 가능  <br>
 (다 가능하다는 말?)  
 
-#나중에 할거
+# 나중에 할거
 이슈에 있음
