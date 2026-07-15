@@ -145,15 +145,12 @@
                     document.querySelector('#k' + c + '_wx6v').appendChild(ch);
                 },
                 b: () => {
+                    let MHB = {};
                     /* yiy */
-                    return "lghqep%i" + JSON.stringify(arr.map((z) => {
-                        const ch = document.body.querySelector("[id='k_roQ_" + z + "']");
-                        if (ch) {
-                            return [z, ch.checked];
-                        } else {
-                            return [z, false];
-                        }
-                    }));
+                    arr.forEach((z) => {
+                        MHB[z] = document.body.querySelector("[id='k_roQ_" + z + "']")?.checked;
+                    });
+                    return "lghqep%i" + JSON.stringify(MHB);
                 }
             };
             /*window.addEventListener("message", (E0) => {
