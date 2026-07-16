@@ -698,7 +698,7 @@ return {
         ]
     },
     ver: "2.1.0",
-    f: () => {
+    f: (ygh) => {
         //calc_pow > block2.0_calc_pow
         //calc_rad > block2.0_calc_rad
         //tu > block2.0_guc
