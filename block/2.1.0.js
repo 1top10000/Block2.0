@@ -1,6 +1,8 @@
 return {
     block: () => {
-        return [
+        const Blockcolor = '#0079c0'; //블록색깔
+        const Blockcolor2 = '#003655'; //어두운 블록색깔
+        return [ //skeleton:text사용금지
             {
                 name: 'block2.0_calc_pow',
                 template: '%1 ^ %2',
@@ -26,7 +28,7 @@ return {
                     RIGHTHAND: 1,
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     return Math.pow(script.getNumberValue("LEFTHAND", script), script.getNumberValue("RIGHTHAND", script));
                 }
             },
@@ -49,7 +51,7 @@ return {
                     d: 0,
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     return Math.radians(script.getNumberValue("d", script));
                 }
             },
@@ -78,7 +80,7 @@ return {
                     xy: 0,
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     const xy = script.getNumberField("xy", script);
                     if (xy == 0) {
                         return sprite.getScaleX();
@@ -114,11 +116,11 @@ return {
                     v: 1
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     const g = script.getValue("t", script);
                     const v = Number(script.getValue("v", script));
                     if (v != NaN) {
-                        return g.codePointat(0).toString(v);
+                        return g.codePointAt(0).toString(v);
                     } else {
                         return null;
                     }
@@ -152,7 +154,7 @@ return {
                     v: 1
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     const g = Number(script.getValue("t", script));
                     if (g == NaN) {
                         return null;
@@ -182,7 +184,7 @@ return {
                     d: 0,
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     return Math.degrees(script.getNumberValue("d", script));
                 }
             },
@@ -220,7 +222,7 @@ return {
                     V3: 2
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     const V1 = script.getNumberValue("V1", script);
                     const V2 = script.getNumberValue("V2", script);
                     const V3 = script.getNumberValue("V3", script);
@@ -252,10 +254,11 @@ return {
                     V: 0,
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     return Math.exp(script.getNumberValue("V", script));
                 }
             },
+            /*
             {
                 name: 'block2.0_pi',
                 template: '파이값',
@@ -270,7 +273,7 @@ return {
                 def: [],
                 map: {},
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     return Math.PI;
                 }
             },
@@ -288,7 +291,7 @@ return {
                 def: [],
                 map: {},
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     return Math.floor(new Date().getTime() / 1000.0);
                 }
             },
@@ -306,7 +309,7 @@ return {
                 def: [],
                 map: {},
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     return NaN;
                 }
             },
@@ -324,10 +327,11 @@ return {
                 def: [],
                 map: {},
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     return Infinity;
                 }
             },
+            */
             {
                 name:"block2.0_csonse",
                 template: '%1',
@@ -359,7 +363,7 @@ return {
                     v: 0
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     let v = script.getValue("v", script);
                     if (v==="0") {
                         return Math.floor(new Date().getTime() / 1000.0);
@@ -408,7 +412,7 @@ return {
                     V: 0,
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     alert(script.getValue("V", script));
                     return script.callReturn();
                 }
@@ -434,7 +438,7 @@ return {
                     V: 0,
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     const value = script.getValue("V", script);
                     return confirm(value);
                 }
@@ -464,7 +468,7 @@ return {
                     V: 0
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     const urll = URL.parse(script.getValue('V', script));
                     if (urll.href.toLowerCase().search("javascript") === -1) {
                         window.open(urll.href);
@@ -509,7 +513,7 @@ return {
                     V1: 1
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     const V0 = script.getNumberField("V0", script);
                     const V1 = script.getNumberValue("V1", script);
                     if (V0 == 0) {
@@ -565,7 +569,7 @@ return {
                     V3: 2,
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     const V0 = script.getNumberField("V1", script);
                     const V1 = script.getNumberValue("V2", script);
                     const V2 = script.getNumberValue("V3", script);
@@ -612,7 +616,7 @@ return {
                     V1: 0,
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     const V0 = script.getNumberField("V1", script);
                     if (V0 == 0) {
                         Entry.engine.toggleStop();
@@ -648,7 +652,7 @@ return {
                     V: 0
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     var dummy = document.createElement("textarea");
                     document.body.appendChild(dummy);
                     dummy.value = script.getValue('V', script);
@@ -690,7 +694,7 @@ return {
                     V: 0
                 },
                 class: "Block2.0",
-                func: async (sprite, script) => {
+                func: (sprite, script) => {
                     eval(script.getValue('V', script));
                     return script.callReturn();
                 }
@@ -699,12 +703,12 @@ return {
     },
     ver: "2.1.0",
     f: (ygh) => {
+        console.log("2.1.0으로 작품 버전 올리기 시작함");
         //calc_pow > block2.0_calc_pow
         //calc_rad > block2.0_calc_rad
         //tu > block2.0_guc
         //ut > block2.0_cgup
         //B > block2.0_B
-        //calc_pi > block2.0_pi
         //pi, NaN, inf, time > block2.0_csonse
         //setScaleXY > block2.0_XY
         //Valuemove > block2.0_ValueXY0

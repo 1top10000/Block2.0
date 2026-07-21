@@ -1,8 +1,6 @@
 //Block2.0은 EntSave,StrongBlock, SpecialBlock, ExpressBlock을 참고해서 만들었습니다.
 const Blockcolor = '#0079c0'; //블록색깔
 const Blockcolor2 = '#003655'; //어두운 블록색깔
-const Blockcolor3 = '#0079c0';
-const getcolor = '#373737';
 
 // 클립보드 복사 함수 (ExpressBlock)
 function copy(val) {
