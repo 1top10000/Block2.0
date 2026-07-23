@@ -703,7 +703,7 @@ return {
     },
     ver: "2.1.0",
     f: (ygh) => {
-        console.log("2.1.0으로 작품 버전 올리기 시작함");
+        console.log("2.0에서 2.1.0으로 작품 버전 올리기 시작함");
         //calc_pow > block2.0_calc_pow
         //calc_rad > block2.0_calc_rad
         //tu > block2.0_guc

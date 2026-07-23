@@ -7,114 +7,169 @@ if (confirm("이 코드를 실행하면 작품이 저장 전오로 돌아갑니�
 	alert("취소함");
 	throw new Error("취소함");
 }
-/* 작품 불러오는 코드 => YGH */ let YGH = null;
-/* 작품 버전 구하는 코드 => AEV */ let AEV = "2.1.0";
-const io = version.indexOf(AEV);
-let R = []; //프로미스 전용
-if (io === -1 && AEV !== "2.0") {
-	alert("작품 버전이 이상함");
-	throw new Error("작품 버전이 이상함");
+let win = null;
+if (location.href.indexOf('playentry.org/project') !== -1) {
+	win = document.querySelector('iframe.css-1sbyuvq.eaizycc0').contentWindow;
+	win["Block2.0"] = window["Block2.0"];
 }
-for (let i = io + 1; i < version.length; i++) { //가장 최신까지 포함하여 불러오기
-	R[R.length] = fetch(AVC + "/block/" + version[i] + ".js", { method: "GET", credentials: "include"}).then((resk) => { if (resk.ok) { return resk.text(); } else { return new Promise((resolve) => { resolve(false); }); }});
-}
-if (R.length === 0) { //아무것도 없는상황 처리
-	R[0] = fetch(AVC + "/block/" + version[version.length - 1] + ".js", { method: "GET", credentials: "include"}).then((resk) => { if (resk.ok) { return resk.text(); } else { return new Promise((resolve) => { resolve(false); }); }});
-}
-Promise.all(R).then((r) => { //모든것이 끝나면 문자열로 이루어진 r반환
-	if(r.indexOf(false) !== -1) { //r중에 false가 하나라도 있으면 실행
-		alert('오류남');
-		throw new Error('오류남');
+let YGH; //작품
+let AEV; //버전
+const nextf = () => {
+	const io = version.indexOf(AEV);
+	let R = []; //프로미스 전용
+	if (io === -1 && AEV !== "2.0") {
+		alert("작품 버전이 이상함");
+		throw new Error("작품 버전이 이상함");
 	}
-	for (let tg in r) { //tg는 숫자
-		if (Number(tg) === r.length - 1) { //가장 최신 버전을 처리하고 있다면
-			const hr = new Function(r[Number(tg)])(); //hr=가장 최신버전
-			if (io !== version.length - 1) {
-				hr.f(YGH); //YGH=작품
-			}  //아래 있는 코드는 cn.html을 resu0에 넣음
-			fetch(AVC + '/html/cn.html', { method: "GET", credentials: "include"}).then((res) => { if (res.ok) { return res.text(); } else { return new Promise((resolve) => { resolve(false); }); }}).then(resu0 => {
-				if (resu0 === false) {
-					alert('오류남');
-					throw new Error('오류남');
-				}
-				let ulisu0;
-				try {
-					ulisu0 = document.createElement('iframe');
-					ulisu0.id = "k_pr2r";
-					let repla = ""; //<script>안에 넣을 js코드 블럭 고르는거 만드는 코드
-					let obst = []; //모든 블럭 id 들어가는곳
-					let feolsb = localStorage.getItem("block2.0_feolsb"); //json형식
-					let feolsbb = {}; //만약 저장 정보를 활용한다면 기본값 설정에 활용
-					if (feolsb && confirm("저장 정보를 사용하나요?")) {
-						feolsbb = JSON.parse(feolsb);
+	for (let i = io + 1; i < version.length; i++) { //가장 최신까지 포함하여 불러오기
+		R[R.length] = fetch(AVC + "/block/" + version[i] + ".js", { method: "GET", credentials: "include"}).then((resk) => { if (resk.ok) { return resk.text(); } else { return new Promise((resolve) => { resolve(false); }); }});
+	}
+	if (R.length === 0) { //아무것도 없는상황 처리
+		R[0] = fetch(AVC + "/block/" + version[version.length - 1] + ".js", { method: "GET", credentials: "include"}).then((resk) => { if (resk.ok) { return resk.text(); } else { return new Promise((resolve) => { resolve(false); }); }});
+	}
+	Promise.all(R).then((r) => { //모든것이 끝나면 문자열로 이루어진 r반환
+		if(r.indexOf(false) !== -1) { //r중에 false가 하나라도 있으면 오류발생
+			alert('오류남');
+			throw new Error('오류남');
+		}
+		for (let tg in r) { //tg는 숫자
+			if (Number(tg) === r.length - 1) { //가장 최신 버전을 처리하고 있다면
+				const hr = new Function(r[Number(tg)])(); //hr=가장 최신버전
+				if (io !== version.length - 1) {
+					hr.f(YGH); //YGH=작품
+				}  //아래 있는 코드는 cn.html을 resu0에 넣음
+				fetch(AVC + '/html/cn.html', { method: "GET", credentials: "include"}).then((res) => { if (res.ok) { return res.text(); } else { return new Promise((resolve) => { resolve(false); }); }}).then(resu0 => {
+					if (resu0 === false) {
+						alert('오류남');
+						throw new Error('오류남');
 					}
-					hr.obst[0].forEach(element => { //4개의 안전 등급 따로
-						obst = obst.concat(element[0]);
-						repla = repla + `feols.a("${element[0]}", "${element[1]}", "0", "${feolsbb[element[0]] == undefined ? "checked" : (feolsbb[element[0]] ? "checked" : "")}");`;
-					});
-					hr.obst[1].forEach(element => {
-						obst = obst.concat(element[0]);
-						repla = repla + `feols.a("${element[0]}", "${element[1]}", "1", "${feolsbb[element[0]] == undefined ? "checked" : (feolsbb[element[0]] ? "checked" : "")}");`;
-					});
-					hr.obst[2].forEach(element => {
-						obst = obst.concat(element[0]);
-						repla = repla + `feols.a("${element[0]}", "${element[1]}", "2", "${feolsbb[element[0]] ? "checked" : ""}");`;
-					});
-					hr.obst[3].forEach(element => {
-						obst = obst.concat(element[0]);
-						repla = repla + `feols.a("${element[0]}", "${element[1]}", "3", "${feolsbb[element[0]] ? "checked" : ""}");`;
-					});
-					ulisu0.style = 'position: absolute; top: 0px; left: calc(50% - 195px); width: 390px; height: 430px; border: none; z-index: 219;';
-					document.body.prepend(ulisu0);
-					ulisu0.contentWindow.document.open(); //gfg=고르는거 생성 코드 yiy=내부에 블록 리스트 전달 전용
-					ulisu0.contentWindow.document.write(resu0.replace("/* gfg */", repla).replace("/* yiy */", "let arr = " + JSON.stringify(obst) + ";"));
-					ulisu0.contentWindow.document.close();
-				} catch(e) {
-					alert("오류남:" + e);
-					throw new Error("오류남" + e);
-				}
-				window.addEventListener("message", (e) => {
-					if (typeof e.data === "string") {
-						let lghqep = e.data.split("%i"); //lghqep[1]: {id: bool}형식
-						if (lghqep.length === 2 && lghqep[0] === "block2.0_feolsb:lghqep") { //내부에서 확인 버튼 누르면 아래가 실행, 어디에서 온 신호인지 확인 코드 있으면 좋음
-							let D; //lghqep[1]
-							try {
-								D = JSON.parse(lghqep[1]);
-								localStorage.setItem("block2.0_feolsb", lghqep[1]);
-								ulisu0.remove();
-								alert('Block2.0을 설치합니다.');
-								let pEPE = hr.block();
-								for (let i of pEPE) {
-									window["Block2.0"].func[i.name] = i.func;
+					let ulisu0;
+					try {
+						ulisu0 = document.createElement('iframe');
+						ulisu0.id = "k_pr2r";
+						let repla = ""; //<script>안에 넣을 js코드 블럭 고르는거 만드는 코드
+						let obst = []; //모든 블럭 id 들어가는곳
+						let feolsb = localStorage.getItem("block2.0_feolsb"); //json형식
+						let feolsbb = {}; //만약 저장 정보를 활용한다면 기본값 설정에 활용
+						if (feolsb && confirm("저장 정보를 사용하나요?")) {
+							feolsbb = JSON.parse(feolsb);
+						}
+						hr.obst[0].forEach(element => { //4개의 안전 등급 따로
+							obst = obst.concat(element[0]);
+							repla = repla + `feols.a("${element[0]}", "${element[1]}", "0", "${feolsbb[element[0]] == undefined ? "checked" : (feolsbb[element[0]] ? "checked" : "")}");`;
+						});
+						hr.obst[1].forEach(element => {
+							obst = obst.concat(element[0]);
+							repla = repla + `feols.a("${element[0]}", "${element[1]}", "1", "${feolsbb[element[0]] == undefined ? "checked" : (feolsbb[element[0]] ? "checked" : "")}");`;
+						});
+						hr.obst[2].forEach(element => {
+							obst = obst.concat(element[0]);
+							repla = repla + `feols.a("${element[0]}", "${element[1]}", "2", "${feolsbb[element[0]] ? "checked" : ""}");`;
+						});
+						hr.obst[3].forEach(element => {
+							obst = obst.concat(element[0]);
+							repla = repla + `feols.a("${element[0]}", "${element[1]}", "3", "${feolsbb[element[0]] ? "checked" : ""}");`;
+						});
+						ulisu0.style = 'position: absolute; top: 0px; left: calc(50% - 195px); width: 390px; height: 430px; border: none; z-index: 219;';
+						document.body.prepend(ulisu0);
+						ulisu0.contentWindow.document.open(); //gfg=고르는거 생성 코드 yiy=내부에 블록 리스트 전달 전용
+						ulisu0.contentWindow.document.write(resu0.replace("/* gfg */", repla).replace("/* yiy */", "let arr = " + JSON.stringify(obst) + ";"));
+						ulisu0.contentWindow.document.close();
+					} catch(e) {
+						alert("오류남:" + e);
+						throw new Error("오류남" + e);
+					}
+					window.addEventListener("message", (e) => {
+						if (typeof e.data === "string") {
+							let lghqep = e.data.split("%i"); //lghqep[1]: {id: bool}형식
+							if (lghqep.length === 2 && lghqep[0] === "block2.0_feolsb:lghqep") { //내부에서 확인 버튼 누르면 아래가 실행, 어디에서 온 신호인지 확인 코드 있으면 좋음
+								let D; //lghqep[1]
+								try {
+									D = JSON.parse(lghqep[1]);
+									localStorage.setItem("block2.0_feolsb", lghqep[1]);
+									ulisu0.remove();
+									alert('Block2.0을 설치합니다.');
+									let pEPE = hr.block();
+									for (let i of pEPE) {
+										window["Block2.0"].func[i.name] = i.func;
+									}
+									let nN = YGH.aiUtilizeBlocks.filter((ele) => { return ele.indexOf("Block2.0_") !== 0});
+									nN[nN.length] = "Block2.0_" + version.at(-1);
+									window["Block2.0"].pj = YGH;
+									let EPE = JSON.stringify(pEPE); //블록json
+									let code = `try{let EPE=${EPE};let D=${lghqep[1]};let blockArray=new Array;for(let i in EPE){let block=EPE[i];let name=block.name;blockArray.push(block.name);Entry.block[block.name]={
+	color:D[name]?block.color.default:"#d83e49",fontColor:block.color.font,outerLine:D[name]?block.color.darken:"#ae2932",skeleton:block.skeleton,statement:[],params:block.params,events:{},def:{params:block.def,type:block.name},paramsKeyMap:block.map,class:block.class?block.class:'default',func:D[name]?window["Block2.0"].func[name]:()=>{return null;},template:block.template};}
+	if (typeof useWebGL=="undefined"){const fragment=document.createDocumentFragment();fragment.appendChild(Entry.playground.mainWorkspace.blockMenu._generateCategoryElement('Block2.0',true)[0]);let cdd=Entry.playground.mainWorkspace.blockMenu._categoryCol[0].querySelectorAll(".entryCategoryElementWorkspace");
+	Entry.playground.mainWorkspace.blockMenu._categoryCol[0].insertBefore(fragment, cdd[cdd.length - 1]);for (let i=0;i<$('.entryCategoryElementWorkspace').length;i++){if(!($($('.entryCategoryElementWorkspace')[i]).attr('id')=="entryCategorytext")){
+	$($('.entryCategoryElementWorkspace')[i]).attr('class','entryCategoryElementWorkspace');}}Entry.playground.blockMenu._categoryData=Entry.playground.blockMenu._categoryData.concat({"category":"Block2.0",blocks:blockArray});Entry.playground.blockMenu._generateCategoryCode('Block2.0');const entryCategory=document.getElementById("entryCategoryBlock2.0");
+	$('head').append(\`<style>[id='entryCategoryBlock2.0'] {background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img0.svg);background-repeat:no-repeat;margin-bottom:1px}.entrySelectedCategory[id='entryCategoryBlock2\\.0'] {background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg);background-color:#00FF98;color:#000000}</style>\`);
+	entryCategory.append("Block2.0");}Entry.clearProject();Entry.loadProject(window["Block2.0"].pj);}catch(e){alert('오류남:'+e);throw new Error("오류남:"+e);}`;
+									const scr = document.createElement('script');
+									scr.innerHTML = code;
+									if (win) {
+										win.document.body.prepend(scr);
+									} else {
+										document.body.prepend(scr);
+									}
+								} catch(err) {
+									alert("오류남:" + err);
+									throw new Error("오류남:" + err);
 								}
-								let EPE = JSON.stringify(pEPE); //블록json
-								let code = `try{let EPE=${EPE};let D=${lghqep[1]};let blockArray=new Array;for(let i in EPE){let block=EPE[i];let name=block.name;blockArray.push(block.name);Entry.block[block.name]={
-color:D[name]?block.color.default:"#d83e49",fontColor:block.color.font,outerLine:D[name]?block.color.darken:"#ae2932",skeleton:block.skeleton,statement:[],params:block.params,events:{},def:{params:block.def,type:block.name},paramsKeyMap:block.map,class:block.class?block.class:'default',func:D[name]?window["Block2.0"].func[name]:()=>{return null;},template:block.template};}
-if (typeof useWebGL=="undefined"){const fragment=document.createDocumentFragment();fragment.appendChild(Entry.playground.mainWorkspace.blockMenu._generateCategoryElement('Block2.0',true)[0]);let cdd=Entry.playground.mainWorkspace.blockMenu._categoryCol[0].querySelectorAll(".entryCategoryElementWorkspace");
-Entry.playground.mainWorkspace.blockMenu._categoryCol[0].insertBefore(fragment, cdd[cdd.length - 1]);for (let i=0;i<$('.entryCategoryElementWorkspace').length;i++){if(!($($('.entryCategoryElementWorkspace')[i]).attr('id')=="entryCategorytext")){
-$($('.entryCategoryElementWorkspace')[i]).attr('class','entryCategoryElementWorkspace');}}Entry.playground.blockMenu._categoryData=Entry.playground.blockMenu._categoryData.concat({"category":"Block2.0",blocks:blockArray});Entry.playground.blockMenu._generateCategoryCode('Block2.0');const entryCategory=document.getElementById("entryCategoryBlock2.0");
-$('head').append(\`<style>[id='entryCategoryBlock2.0'] {background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img0.svg);background-repeat:no-repeat;margin-bottom:1px}.entrySelectedCategory[id='entryCategoryBlock2\\.0'] {background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg);background-color:#00FF98;color:#000000}</style>\`);
-entryCategory.append("Block2.0");}}catch(e){alert('오류남:'+e);throw new Error("오류남:"+e);}`;
-								const scr = document.createElement('script');
-								scr.innerHTML = code;
-								if (location.href.indexOf('playentry.org/project') == -1) {
-									document.body.prepend(scr);
-								} else {
-									document.querySelector('iframe.css-1sbyuvq.eaizycc0').contentWindow.document.body.prepend(scr);
-								}
-							} catch(err) {
-								alert("오류남:" + err);
-								throw new Error("오류남:" + err);
 							}
 						}
-					}
+					});
 				});
-			});
-		} else { //r[tg]가 최신버전이 아닌상황
-			new Function(r[Number(tg)])().f(YGH); //r[tg]에서 f만 가지고와서 함
+			} else { //r[tg]가 최신버전이 아닌상황
+				new Function(r[Number(tg)])().f(YGH); //r[tg]에서 f만 가지고와서 함
+			}
 		}
-	}
-}).catch((err) => { //block/버전.js 가저오기 오류 발생시
-	alert(err);
-	throw new Error(err);
-});
+	}).catch((err) => { //block/버전.js 가저오기 오류 발생시
+		alert(err);
+		throw new Error(err);
+	});
+};
+const iD = location.pathname.split("/").at(-1)
+if (iD === "new") { //작품을 불러와야 하는 상황 구별
+	AEV = version.at(-1);
+	nextf();
+} else {
+	const __NEXT_DATA__ = JSON.parse(document.body.querySelector(`#__NEXT_DATA__`).innerHTML);
+	const csrftoken = __NEXT_DATA__.props.initialProps.csrfToken;
+	const xToken = __NEXT_DATA__.props.pageProps.initialState.common.user.xToken;
+	fetch("https://playentry.org/graphql/SELECT_PROJECT", {
+		method: "POST",
+		headers: {
+			"Csrf-Token": csrftoken,
+			"X-Token": xToken
+		},
+		body: JSON.stringify({
+			query: `query SELECT_PROJECT($id: ID! $groupId: ID) {\nproject(id: $id, groupId: $groupId) {
+id\nname\nthumb\nisopen\nshowComment\nblamed\nisPracticalCourse\ncategory\ncategoryCode\ncreated\nupdated\nspecial\nisForLecture\nisForStudy\nisForSubmit\nhashId\ncomplexity\nstaffPicked\nranked\nvisit\nlikeCnt\ncomment\nfavorite\nshortenUrl
+description\ndescription2\ndescription3\nhasRealTimeVariable\nblockCategoryUsage\nchildCnt
+commentGroup {\ngroup\ncount\n}\nlikeCntGroup {\ngroup\ncount\n}\nvisitGroup {\ngroup\ncount\n}\nrecentGroup {\ngroup\ncount\n}
+published\nisFirstPublish\ntags\nspeed\nobjects\nvariables\nsubmitId {\nid\n}\ncloudVariable\nmessages\nfunctions\ntables\nscenes
+realTimeVariable {\nvariableType\nkey\nvalue\narray {\nkey\ndata\n}\nminValue\nmaxValue\nvisible\nx\ny\nwidth\nheight\nobject\n}
+learning\nexpansionBlocks\naiUtilizeBlocks\nhardwareLiteBlocks\nblockCategoryUsage\n}}`,
+			variables: {
+				id: iD
+			}
+		})
+	}).then((res) => { if (res.ok) { return res.text(); } else { return new Promise((resolve) => { resolve(false); }); }}).then((pj)=>{
+		if (pj === false) {
+			alert('오류남');
+			throw new Error('오류남');
+		}
+		YGH = pj.data.project;
+		AEV = YGH.aiUtilizeBlocks.filter((ele) => { return ele.indexOf("Block2.0_") === 0});
+		if (AEV.length === 1) {
+			AEV = AEV.substring(9);
+			nextf();
+		} else if (AEV.length === 0) {
+			AEV = "2.0";
+			nextf();
+		} else {
+			alert('작품의 block2.0버전이 이상함');
+			throw new Error('작품의 block2.0버전이 이상함');
+		}
+	});
+}
