@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        #k_ps16 {
+            width: 390px;
+            height: 430px;
+            background-color: #f0f0f0;
+            position: absolute;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+        }
+        #k_ygx6 {
+            width: 370px;
+            height: 50px;
+            top: 10px;
+            position: relative;
+            background-color: transparent;
+            display: flex;
+        }
+        .k_xtre {
+            width: 25%;
+            height: 100%;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(#cccccc, #ccccccc0, transparent, transparent);
+            font-size: 12px;
+            color: #000000;
+        }
+        .k_xtre:hover {
+            outline: 8px solid #00000020;
+        }
+        #k_9uh3 {
+            width: 90%;
+            height: 292px;
+            background-color: transparent;
+            border-top: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .k_wx6v {
+            width: 95%;
+            height: 91%;
+            background-color: #e3e3e3;
+            border-radius: 7px;
+            overflow-y: auto;
+        }
+        .k_bfu2 {
+            text-indent: 10px;
+        }
+        #k_97gf {
+            background-color: #6b3a0f;
+            width: 58%;
+            height: 38px;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script><script>eruda.init();</script>
+    <div id="k_ps16">
+        <div id="k_ygx6">
+            <div class="k_xtre" id="e0_53r3" style="background: radial-gradient(#ccccaf, #ccccafc0, transparent, transparent);">계산</div>
+            <div class="k_xtre" id="e1_53r3">안전</div>
+            <div class="k_xtre" id="e2_53r3">중간</div>
+            <div class="k_xtre" id="e3_53r3" style="background: radial-gradient(#efcccc, #efccafc0, transparent, transparent);">위험</div>
+        </div>
+        <section id="k_9uh3">
+            <div id="k0_wx6v" class="k_wx6v" style="display: block;"></div>
+            <div id="k1_wx6v" class="k_wx6v" style="display: none;"></div>
+            <div id="k2_wx6v" class="k_wx6v" style="display: none;"></div>
+            <div id="k3_wx6v" class="k_wx6v" style="display: none;"></div>
+        </section>
+        <button id="k_97gf" onclick="window.parent.postMessage('block2.0_feolsb:' + feols.b(), location.origin);">확인</button>
+        <script>
+            const e_53r3 = [
+                document.querySelector('#e0_53r3'),
+                document.querySelector('#e1_53r3'),
+                document.querySelector('#e2_53r3'),
+                document.querySelector('#e3_53r3')
+            ];
+            const k_wx6v = [
+                document.querySelector('#k0_wx6v'),
+                document.querySelector('#k1_wx6v'),
+                document.querySelector('#k2_wx6v'),
+                document.querySelector('#k3_wx6v')
+            ];
+            e_53r3[0].addEventListener('click', () => {
+                k_wx6v[0].style.display = 'block';
+                k_wx6v[1].style.display = 'none';
+                k_wx6v[2].style.display = 'none';
+                k_wx6v[3].style.display = 'none';
+                e_53r3[0].style = 'background: radial-gradient(#ccccaf, #ccccafc0, transparent, transparent);';
+                e_53r3[1].style = '';
+                e_53r3[2].style = '';
+                e_53r3[3].style = 'background: radial-gradient(#efcccc, #efccccc0, transparent, transparent);';
+
+            });
+            e_53r3[1].addEventListener('click', () => {
+                k_wx6v[0].style.display = 'none';
+                k_wx6v[1].style.display = 'block';
+                k_wx6v[2].style.display = 'none';
+                k_wx6v[3].style.display = 'none';
+                e_53r3[0].style = '';
+                e_53r3[1].style = 'background: radial-gradient(#ccccaf, #ccccafc0, transparent, transparent);';
+                e_53r3[2].style = '';
+                e_53r3[3].style = 'background: radial-gradient(#efcccc, #efccccc0, transparent, transparent);';
+            });
+            e_53r3[2].addEventListener('click', () => {
+                k_wx6v[0].style.display = 'none';
+                k_wx6v[1].style.display = 'none';
+                k_wx6v[2].style.display = 'block';
+                k_wx6v[3].style.display = 'none';
+                e_53r3[0].style = '';
+                e_53r3[1].style = '';
+                e_53r3[2].style = 'background: radial-gradient(#ccccaf, #ccccafc0, transparent, transparent);';
+                e_53r3[3].style = 'background: radial-gradient(#efcccc, #efccccc0, transparent, transparent);';
+            });
+            e_53r3[3].addEventListener('click', () => {
+                k_wx6v[0].style.display = 'none';
+                k_wx6v[1].style.display = 'none';
+                k_wx6v[2].style.display = 'none';
+                k_wx6v[3].style.display = 'block';
+                e_53r3[0].style = '';
+                e_53r3[1].style = '';
+                e_53r3[2].style = '';
+                e_53r3[3].style = 'background: radial-gradient(#efccaf, #efccafc0, transparent, transparent);';
+            });
+            window.feols = {
+                a: (z, x, c, v) => {
+                    const ch = document.createElement('div');
+                    ch.className = 'k_bfu2';
+                    ch.innerHTML = '<lable><input type="checkbox" class="k_bu7s" id="k_roQ_' + z + '" ' + v + ' />' + x + '</lable>';
+                    document.querySelector('#k' + c + '_wx6v').appendChild(ch);
+                },
+                b: () => {
+                    let MHB = {};
+                    /* yiy */
+                    arr.forEach((z) => {
+                        MHB[z] = document.body.querySelector("[id='k_roQ_" + z + "']")?.checked;
+                    });
+                    return "lghqep%i" + JSON.stringify(MHB);
+                }
+            };
+            /*window.addEventListener("message", (E0) => {
+                console.log(E0.origin, E0.data, E0.source);
+                
+                let ta = E0.data.split(':');
+                if (ta[0] === "block2.0_feolsa") {
+                    feols.a(ta[1], ta[2], ta[3], ta[4]);
+                } else if (ta[0] === "block2.0_feolsb") {
+                    let res = feols.b(ta[1]);
+                    window.parent.postMessage("block2.0_feolsb:" + res, "*");
+                }
+                
+            }, false);*/
+            /* gfg */
+        </script>
+    </div>
+</body>
+</html>
