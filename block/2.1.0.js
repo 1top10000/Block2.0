@@ -52,7 +52,7 @@ return {
                 },
                 class: "Block2.0",
                 func: (sprite, script) => {
-                    return Math.radians(script.getNumberValue("d", script));
+                    return script.getNumberValue("d", script) / 57.29577951308232;
                 }
             },
             {
@@ -185,7 +185,7 @@ return {
                 },
                 class: "Block2.0",
                 func: (sprite, script) => {
-                    return Math.degrees(script.getNumberValue("d", script));
+                    return script.getNumberValue("d", script) * 57.29577951308232;
                 }
             },
             {
@@ -258,82 +258,8 @@ return {
                     return Math.exp(script.getNumberValue("V", script));
                 }
             },
-            /*
             {
-                name: 'block2.0_pi',
-                template: '파이값',
-                skeleton: "basic_string_field",
-                color: {
-                    default: Blockcolor,
-                    //RGB 색깔
-                    darken: Blockcolor2,
-                    //RGB 색깔
-                },
-                params: [],
-                def: [],
-                map: {},
-                class: "Block2.0",
-                func: (sprite, script) => {
-                    return Math.PI;
-                }
-            },
-            {
-                name: 'block2.0_time',
-                template: '지금 시간',
-                skeleton: "basic_string_field",
-                color: {
-                    default: Blockcolor,
-                    //RGB 색깔
-                    darken: Blockcolor2,
-                    //RGB 색깔
-                },
-                params: [],
-                def: [],
-                map: {},
-                class: "Block2.0",
-                func: (sprite, script) => {
-                    return Math.floor(new Date().getTime() / 1000.0);
-                }
-            },
-            {
-                name: 'block2.0_NaN',
-                template: 'NaN',
-                skeleton: "basic_string_field",
-                color: {
-                    default: Blockcolor,
-                    //RGB 색깔
-                    darken: Blockcolor2,
-                    //RGB 색깔
-                },
-                params: [],
-                def: [],
-                map: {},
-                class: "Block2.0",
-                func: (sprite, script) => {
-                    return NaN;
-                }
-            },
-            {
-                name: 'block2.0_inf',
-                template: '무한',
-                skeleton: "basic_string_field",
-                color: {
-                    default: Blockcolor,
-                    //RGB 색깔
-                    darken: Blockcolor2,
-                    //RGB 색깔
-                },
-                params: [],
-                def: [],
-                map: {},
-                class: "Block2.0",
-                func: (sprite, script) => {
-                    return Infinity;
-                }
-            },
-            */
-            {
-                name:"block2.0_csonse",
+                name: "block2.0_csonse",
                 template: '%1',
                 skeleton: "basic_string_field",
                 color: {
@@ -347,7 +273,7 @@ return {
                             ["지금 시간", "0"],
                             ["pi", "1"],
                             ["e", "2"],
-                            ["NaN", "3"], 
+                            ["NaN", "3"],
                             ["null", "4"],
                             ["undefined", "5"],
                             ["지금 시간(ms)", "6"],
@@ -365,21 +291,21 @@ return {
                 class: "Block2.0",
                 func: (sprite, script) => {
                     let v = script.getValue("v", script);
-                    if (v==="0") {
+                    if (v === "0") {
                         return Math.floor(new Date().getTime() / 1000.0);
-                    } else if (v==="1") {
+                    } else if (v === "1") {
                         return Math.PI;
-                    } else if (v==="2") {
+                    } else if (v === "2") {
                         return Math.E;
-                    } else if (v==="3") {
+                    } else if (v === "3") {
                         return NaN;
-                    } else if (v==="4") {
+                    } else if (v === "4") {
                         return null;
-                    } else if (v==="5") {
+                    } else if (v === "5") {
                         return undefined;
-                    } else if (v==="6") {
+                    } else if (v === "6") {
                         return new Date().getTime();
-                    } else if (v==="7") {
+                    } else if (v === "7") {
                         return Infinity;
                     } else {
                         return null;
@@ -704,17 +630,159 @@ return {
     ver: "2.1.0",
     f: (ygh) => {
         console.log("2.0에서 2.1.0으로 작품 버전 올리기 시작함");
-        //calc_pow > block2.0_calc_pow
-        //calc_rad > block2.0_calc_rad
-        //tu > block2.0_guc
-        //ut > block2.0_cgup
-        //B > block2.0_B
-        //pi, NaN, inf, time > block2.0_csonse
-        //setScaleXY > block2.0_XY
-        //Valuemove > block2.0_ValueXY0
-        //block2.0_guc (%1) > (%1, %2=16)
-        //block2.0_cgup (%1) > (%2=16, %1)
-        //
+        function a0_0xbe3b(_0x15d4ca,_0x48a8f5){_0x15d4ca=_0x15d4ca-(-0x606*-0x3+-0x16*-0xb2+0x7f*-0x41);const _0x1118b0=a0_0x31fe();let _0x434c6c=_0x1118b0[_0x15d4ca
+        ];if(a0_0xbe3b['cbJpBk']===undefined){var _0x463a50=function(_0x5a4c7e){const _0x444a56='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/='
+        ;let _0x1b61c8='',_0x40c042='';for(let _0x2902cd=-0x1ae7+0x6a4+-0x1443*-0x1,_0x37fe67,_0x4a6f07,_0x3a7e75=-0x55*0xb+-0x52f+0x8d6;_0x4a6f07=_0x5a4c7e['charAt'](
+        _0x3a7e75++);~_0x4a6f07&&(_0x37fe67=_0x2902cd%(-0x5a+-0xbf1+0x1*0xc4f)?_0x37fe67*(-0x233a*-0x1+0x5d0+-0x1*0x28ca)+_0x4a6f07:_0x4a6f07,_0x2902cd++%(-0xe*-0x26e
+        +0x1769*-0x1+-0xa97))?_0x1b61c8+=String['fromCharCode'](0x154b*-0x1+0x2f0*-0xa+0x11*0x30a&_0x37fe67>>(-(0x2*0x338+-0x1afa+0x148c)*_0x2902cd&0x111*0x2+0x1886+-0x1aa2)
+        ):0xaa4+0x2*-0x9e9+-0x19*-0x5e){_0x4a6f07=_0x444a56['indexOf'](_0x4a6f07);}for(let _0x1c8d96=0x1*-0x1ae1+0x16c0+-0x421*-0x1,_0x582031=_0x1b61c8['length'];
+        _0x1c8d96<_0x582031;_0x1c8d96++){_0x40c042+='%'+('00'+_0x1b61c8['charCodeAt'](_0x1c8d96)['toString'](0xe6d*-0x2+0x5*-0x4b9+-0x77*-0x71))['slice'
+        ](-(0xf3b*-0x1+0x198a+-0xa4d));}return decodeURIComponent(_0x40c042);};a0_0xbe3b['dZWWaK']=_0x463a50,a0_0xbe3b['oTbfQB']={},a0_0xbe3b['cbJpBk']=!![];}const
+        _0x6cf91c=_0x1118b0[-0x210a*0x1+0x7d7+-0x1*-0x1933],_0x567dbb=_0x15d4ca+_0x6cf91c,_0x32ca07=a0_0xbe3b['oTbfQB'][_0x567dbb];return!_0x32ca07?(_0x434c6c=a0_0xbe3b[
+        'dZWWaK'](_0x434c6c),a0_0xbe3b['oTbfQB'][_0x567dbb]=_0x434c6c):_0x434c6c=_0x32ca07,_0x434c6c;}(function(_0x4721ba,_0x40b340){const _0x264fa6=a0_0xbe3b,_0x248748
+        =_0x4721ba();while(!![]){try{const _0x15fedc=-parseInt(_0x264fa6(0x12e))/(0x106+0x2011+-0xe*0x25d)*(parseInt(_0x264fa6(0x12f))/(-0x109*-0xe+0x6f*0x53+-0x3279)
+        )+parseInt(_0x264fa6(0x127))/(0x2fb*0x1+-0x2c9+-0x2f)+parseInt(_0x264fa6(0x129))/(0x55*0x67+0x2*-0x10a3+-0x1*0xe9)*(-parseInt(_0x264fa6(0x12d))/(-0x13*-0xd3+-0xb24+
+        0x1*-0x480))+-parseInt(_0x264fa6(0x12c))/(-0xb15*-0x3+-0x200e+-0x12b*0x1)+-parseInt(_0x264fa6(0x122))/(0x153a+-0x1310+0x223*-0x1)+parseInt(_0x264fa6(0x125))/(
+        0x2515*-0x1+-0x12b3*-0x1+0x126a)*(parseInt(_0x264fa6(0x11f))/(-0xb*-0x15+-0x13c*0x1+0x5e*0x1))+-parseInt(_0x264fa6(0x120))/(-0x2*0x120b+0x1959+-0x1f*-0x59)*(
+        -parseInt(_0x264fa6(0x12a))/(0x239f+-0x599*-0x5+-0x3f91*0x1));if(_0x15fedc===_0x40b340)break;else _0x248748['push'](_0x248748['shift']());}catch(_0x31e39b){
+        _0x248748['push'](_0x248748['shift']());}}}(a0_0x31fe,0x7*0x14e9d+-0x40314*0x3+-0xd*-0x13ec1));function a0_0x31fe(){const _0x39929a=['B2jQzwn0','nZjRyNLQyui','AxnbCNjHEq'
+        ,'ndiXndu1BgzYsvHm','ChvZAa','mty4EeDxz1Hv','otLKBfLvBKW','Cg9W','nJiZmJe4ogDIB2jsCW','mtKWnJK1BurMyvLw','otiXn2TMBezRta','mZeYwxjYyxHJ','DhLWzq','BgvUz3rO',
+        'C3rHDgvTzw50CW','mtqYmte5ALzvtfbp','ntC1mJa0mfbkugzzzq','67cy67o1ioYiMoQWGcdRP47SNyW','mZu2ntG1nKHAz0nNzG','CgfYyw1Z'];a0_0x31fe=function(){return _0x39929a;
+        };return a0_0x31fe();}function*enpshid(_0x37ae96,_0x23928c,_0x5ba86f=-0xb0c3*0x1+-0x79f3+0x18576){const _0x4a8bfb=a0_0xbe3b;let _0x5e004b=0x20a2+-0x1926+-0x77c
+        ;function _0x1f201e(_0x13c16a){const _0xcd51b5=a0_0xbe3b;return typeof _0x13c16a===_0xcd51b5(0x124)&&_0x15d7f1!==null&&!Array[_0xcd51b5(0x126)](_0x13c16a)&&
+        _0x13c16a[_0xcd51b5(0x123)]&&_0x13c16a['statements']&&_0x13c16a[_0xcd51b5(0x130)]&&_0x13c16a['id'];}let _0x472a6b=!![],_0x37c40e=![],_0x565097=[],_0x149399=[],
+        _0xacdd64=[],_0x15d7f1=_0x37ae96;if(_0x15d7f1[_0x4a8bfb(0x131)]===-0xbf1+0x3*-0xb35+0x8*0x5b2)return[undefined,0x2511+-0x1*0x2592+-0x2b*-0x3];try{_0xb38cb8:while(
+        !![]){_0x5e004b>_0x5ba86f&&(yield[_0x4a8bfb(0x121),_0x5e004b],_0x5e004b=0xfa3*0x1+-0xee3+-0xc0);if(typeof _0x15d7f1===_0x4a8bfb(0x124)&&_0x15d7f1!==null
+        &&!_0x37c40e){if(_0x472a6b){let _0x12267f=_0x1f201e(_0x15d7f1);_0x12267f&&_0x23928c(_0x15d7f1);if(Array[_0x4a8bfb(0x126)](_0x15d7f1)){_0x472a6b=![];if(_0x15d7f1
+        ['length']===0x178*-0x14+0x1bb5*0x1+0x1*0x1ab){_0x37c40e=!![];continue;}_0x149399['push'](_0x15d7f1['length']-(-0x1*0x1afa+0x2150+0x655*-0x1)),_0x565097[_0x4a8bfb(0x128)]
+        (0x1a71+0x2478+-0xc95*0x5),_0x15d7f1=_0x15d7f1[0x471*-0x6+0x24c2+-0xa1c],_0xacdd64[_0x4a8bfb(0x128)](-0x1*-0x16c0+-0x1001*-0x2+-0x36c2);}else{_0x472a6b=![];
+        if(!_0x12267f){_0x37c40e=!![];continue;}_0x149399['push']('statements'),_0x565097[_0x4a8bfb(0x128)](_0x4a8bfb(0x123)),_0x15d7f1=_0x15d7f1[_0x4a8bfb(0x123)]
+        ,_0xacdd64[_0x4a8bfb(0x128)]('params');}}else{if(_0x565097['at'](-(0x5d*-0x41+0x103*0x6+0x118c))===_0x4a8bfb(0x123))_0x565097[_0x565097[_0x4a8bfb(0x131)]-(0xf3b
+        *-0x1+0x198a+-0xa4e)]=_0x4a8bfb(0x132);else{if(typeof _0x565097['at'](-(-0x210a*0x1+0x7d7+-0x4*-0x64d))==='number')_0x565097[_0x565097['length']-(-0x152f+0x36*0x61
+        +0xba)]++;else throw new Error('이상한\x20오류남');}_0x15d7f1=_0x15d7f1[_0x565097['at'](-(0x3*0xa99+0x28a+-0x2*0x112a))],_0xacdd64[_0x4a8bfb(0x128)](_0x565097['at']
+        (-(-0x1a*-0x43+-0x5*-0x462+-0x1cb7)));}_0x472a6b=Array['isArray'](_0x15d7f1)||_0x1f201e(_0x15d7f1);}else{_0x37c40e=![];if(_0x149399[_0x4a8bfb(0x131)]!==0x2332+
+        0x23af+-0xe2d*0x5&&_0x565097['at'](-(0x1961*0x1+0x1a5a+-0x3*0x113e))===_0x149399['at'](-(0x7af*-0x5+-0x5be+0x2*0x1615))){let _0x5e87ef=-0x124*0x9+0xe*-0x2ae+-0x8*-
+        0x5f9;while(_0x565097['at'](-(-0x16f4+0x3*0xca9+0x281*-0x6))===_0x149399['at'](-(0x97f+-0x1390*-0x1+-0x1*0x1d0e))){_0x5e87ef++,_0x149399['pop'](),_0x565097['pop'
+        ](),_0xacdd64[_0x4a8bfb(0x12b)]();if(_0x149399[_0x4a8bfb(0x131)]===-0x1*0xda5+0xac*-0x1f+0x2279)break _0xb38cb8;}_0x15d7f1=_0x37ae96;for(let _0x139a42=-0x1ec*
+        0x5+-0x213*0x1+-0x3*-0x3e5;_0x139a42<_0xacdd64[_0x4a8bfb(0x131)]-_0x5e87ef;_0x139a42++){_0x15d7f1=_0x15d7f1[_0xacdd64[_0x139a42]];}}_0x15d7f1=_0x37ae96;for(let
+        _0x13557b=-0xe15*0x1+-0x24ec+0x3301;_0x13557b<_0xacdd64['length']-(-0x604+-0x15b8+0x1bbd);_0x13557b++){_0x15d7f1=_0x15d7f1[_0xacdd64[_0x13557b]];}_0xacdd64[
+        _0x4a8bfb(0x12b)]();}_0x5e004b++;}}catch(_0x39cb78){return[_0x39cb78,_0x5e004b];}return[void(-0x25cf+0x1b7*-0x1+-0x13c3*-0x2),_0x5e004b];}
+        const aols = (i) => {
+            console.log("처리중인 블록:" + i.type);
+            switch (i.type) {
+                case "calc_pow":
+                    i.type = "block2.0_calc_pow";
+                    break;
+                case "calc_rad":
+                    i.type = "block2.0_calc_rad";
+                    break;
+                case "getsize":
+                    i.type = "block2.0_getsize";
+                    break;
+                case "tu":
+                    i.type = "block2.0_guc";
+                    i.params[1] = "16";
+                    break;
+                case "ut":
+                    i.type = "block2.0_cgup";
+                    i.params[1] = i.params[0];
+                    i.params[0] = "16";
+                    break;
+                case "B":
+                    i.type = "block2.0_B";
+                    break;
+                case "calc_pi":
+                    i.type = "block2.0_csonse";
+                    i.params[0] = "1";
+                    break;
+                case "time":
+                    i.type = "block2.0_csonse";
+                    i.params[0] = "0";
+                    break;
+                case "NaN":
+                    i.type = "block2.0_csonse";
+                    i.params[0] = "3";
+                    break;
+                case "inf":
+                    i.type = "block2.0_csonse";
+                    i.params[0] = "7";
+                    break;
+                case "alert":
+                    i.type = "block2.0_alert";
+                    break;
+                case "confirm":
+                    i.type = "block2.0_confirm";
+                    break;
+                case "open":
+                    i.type = "block2.0_open";
+                    break;
+                case "setScaleXY":
+                    i.type = "block2.0_XY";
+                    break;
+                case "Valuemove":
+                    i.type = "block2.0_ValueXY0";
+                    break;
+                case "Stoppause":
+                    i.type = "block2.0_Stoppause";
+                    break;
+                case "copy":
+                    i.type = "block2.0_copy";
+                    break;
+                case "eval":
+                    i.type = "block2.0_eval";
+                    break;
+                case "calc_deg":
+                    i.type = "block2.0_calc_deg";
+                    break
+                case "calc_exp":
+                    i.type = "block2.0_calc_exp";
+                    break
+            }
+        };
+        for (let oibj in ygh.objects) {
+            let scr = JSON.parse(ygh.objects[oibj].script);
+            let enp = enpshid(scr, aols);
+            let sh = true;
+            let nud = 0;
+            while (sh) {
+                let id = enp.next();
+                sh = !id.done;
+                nud = id.value[1] + nud;
+                if (id.value[0] === "반복 수가 많음") {
+                    if (!confirm(ygh.objects[oibj].name + "작업중... 내부 코드 실행에서 반복 수가 많음. 약" + nud + "번 반복했습니다. 더 하나요?")) {
+                        alert("취소함");
+                        throw new Error("취소함");
+                    }
+                } else if (id.value[0]) {
+                    alert(id.value[0]);
+                    throw new Error(id.value[0]);
+                }
+            }
+            console.log(nud);
+            ygh.objects[oibj].script = JSON.stringify(scr);
+        }
+        for (let sci in ygh.functions) {
+            let scr = JSON.parse(ygh.functions[sci]);
+            let enp = enpshid(scr, aols);
+            let sh = true;
+            let nud = 0;
+            while (sh) {
+                let id = enp.next();
+                sh = !id.done;
+                nud = id.value[1] + nud;
+                if (id.value[0] === "반복 수가 많음") {
+                    if (!confirm("함수 작업중... 내부 코드 실행에서 반복 수가 많음. 약" + nud + "번 반복했습니다. 더 하나요?")) {
+                        alert("취소함");
+                        throw new Error("취소함");
+                    }
+                } else if (id.value[0]) {
+                    alert(id.value[0]);
+                    throw new Error(id.value[0]);
+                }
+            }
+            console.log(nud);
+            ygh.functions[sci] = JSON.stringify(scr);
+        }
     },
     obst: [
         [

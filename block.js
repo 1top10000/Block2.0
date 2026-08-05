@@ -1,14 +1,12 @@
-window["Block2.0"] = {
-	func: {}
-};
+window["Block2.0"] = {};
 let _g2v3 = ['2.1.0'];
-const AVC = "http://127.0.0.1:5503/";
+const AVC = "https://raw.githack.com/1top10000/Block2.0/main";
 if (confirm("이 코드를 실행하면 작품이 저장 전으로 돌아갑니다. 하지만 블럭 불러오기 전 한번더 저장을 하면 블럭이 사라져서 버장버튼을 누르지 말아야 합니다. 코드실행을 취소하나요?")) {
 	alert("취소함");
 	throw new Error("취소함");
 }
 let _vu2j=null;-1!==location.href.indexOf("playentry.org/project"
-)&&(_vu2j=document.querySelector("iframe.css-1sbyuvq.eaizycc0").contentWindow,
+)&&(_vu2j=document.querySelector("iframe.css-qed8tf.eh3vyy30").contentWindow,
 _vu2j["Block2.0"]=window["Block2.0"]);
 let YGH;
 let _b3dc = [0x83,0x2F,0xC8,0xAD,0x29,"feolsch","nn2fycnh2mxe0vr2hdhkeuhaergrc210nrythtrswbobforEach0pavb9ueiodjig0v28vusdbhibhgsd",'v9qw01hejkvbdsoouvgwjdwboudfheweufjsbmcheckedzocpqohfdajosobjovewohgubwodonfwb',`concat`];
@@ -68,7 +66,7 @@ const _f2h0 = () => {
 							_9vew[_b3dc[8.0]](_f2ud[0]);_4gsd=_4gsd+`feols.a("${_f2ud[0
 							]}","${_f2ud[1]}","3","${_ev87[_f2ud[0]]?
 							_b3dc[7.0][atob("c3Vic3RyaW5n")](0x26,0x2D):""}");`;});
-						_3eub.style = 'position: absolute; top: 0px; left: calc(50% - 195px); width: 390px; height: 430px; border: none; z-index: 219;';
+						_3eub.style = 'position: fixed; top: 0px; left: calc(50% - 195px); width: 390px; height: 430px; border: none; z-index: 219;';
 						document.body.prepend(_3eub);
 						_3eub.contentWindow.document.open();
 						_3eub.contentWindow.document.write(resu0.replace("/* gfg */", _4gsd).replace("/* yiy */", "let arr = " + JSON.stringify(_9vew) + ";"));
@@ -81,21 +79,24 @@ const _f2h0 = () => {
 						if (typeof e.data === "string") {
 							let lghqep = e.data.split("%i");
 							if (lghqep.length === 2 && lghqep[0] === "block2.0_feolsb:lghqep") {
-								let D;
 								try {
-									D = JSON.parse(lghqep[1]);
 									localStorage.setItem("block2.0_feolsb", lghqep[1]);
 									_3eub.remove();
 									alert('Block2.0을 설치합니다.');
 									let pEPE = hr.block();
+									let Bfn = {};
 									for (let i of pEPE) {
-										window["Block2.0"].func[i.name] = i.func;
+										Bfn[i.name] = i.func;
+										i.func = "Bfunc_" + i.name;
+									}
+									let EPE = JSON.stringify(pEPE);
+									for (let i of pEPE) {
+										EPE = EPE.replace(`"Bfunc_${i.name}"`, Bfn[i.name].toString());
 									}
 									window["Block2.0"].pj = YGH;
-									let EPE = JSON.stringify(pEPE);
 									let code = `try{let EPE=${EPE};let D=${lghqep[1]};let blockArray=new Array;for(let i in EPE){let block=EPE[i];let name=block.name;blockArray.push(block.name);Entry.block[block.name]={
-	color:D[name]?block.color.default:"#d83e49",fontColor:block.color.font,outerLine:D[name]?block.color.darken:"#ae2932",skeleton:block.skeleton,statement:[],params:block.params,events:{},def:{params:block.def,type:block.name},paramsKeyMap:block.map,class:block.class?block.class:'default',func:D[name]?window["Block2.0"].func[name]:()=>{return null;},template:block.template};}
-	if (typeof useWebGL=="undefined"){const fragment=document.createDocumentFragment();fragment.appendChild(Entry.playground.mainWorkspace.blockMenu._generateCategoryElement('Block2.0',true)[0]);let cdd=Entry.playground.mainWorkspace.blockMenu._categoryCol[0].querySelectorAll(".entryCategoryElementWorkspace");
+	color:D[name]?block.color.default:"#d83e49",fontColor:block.color.font,outerLine:D[name]?block.color.darken:"#ae2932",skeleton:block.skeleton,statement:[],params:block.params,events:{},def:{params:block.def,type:block.name},paramsKeyMap:block.map,class:block.class?block.class:'default',func:D[name]?block.func:()=>{return null;},template:block.template};}
+	if (Entry.playground?.mainWorkspace?.blockMenu?._generateCategoryElement){const fragment=document.createDocumentFragment();fragment.appendChild(Entry.playground.mainWorkspace.blockMenu._generateCategoryElement('Block2.0',true)[0]);let cdd=Entry.playground.mainWorkspace.blockMenu._categoryCol[0].querySelectorAll(".entryCategoryElementWorkspace");
 	Entry.playground.mainWorkspace.blockMenu._categoryCol[0].insertBefore(fragment, cdd[cdd.length - 1]);for (let i=0;i<$('.entryCategoryElementWorkspace').length;i++){if(!($($('.entryCategoryElementWorkspace')[i]).attr('id')=="entryCategorytext")){
 	$($('.entryCategoryElementWorkspace')[i]).attr('class','entryCategoryElementWorkspace');}}Entry.playground.blockMenu._categoryData=Entry.playground.blockMenu._categoryData.concat({"category":"Block2.0",blocks:blockArray});Entry.playground.blockMenu._generateCategoryCode('Block2.0');const entryCategory=document.getElementById("entryCategoryBlock2.0");
 	$('head').append(\`<style>[id='entryCategoryBlock2.0'] {background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img0.svg);background-repeat:no-repeat;margin-bottom:1px}.entrySelectedCategory[id='entryCategoryBlock2\\.0'] {background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg);background-color:#00FF98;color:#000000}</style>\`);
