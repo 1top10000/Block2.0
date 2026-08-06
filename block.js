@@ -19,9 +19,9 @@ const _f2h0 = () => {
 		throw new Error("작품 버전이 이상함");
 	}
 	for(let e=io+1;e<_g2v3.length;e++)R[R.length]=fetch(AVC+"/block/"+_g2v3[e]+
-	".js",{method:"GET",credentials:"include"}).then(e=>e.ok?e.text():new Promise(e=>
+	".js",{method:"GET"}).then(e=>e.ok?e.text():new Promise(e=>
 	{e(!1)}));0===R.length&&(R[0]=fetch(AVC+"/block/"+_g2v3[_g2v3.length-1]+".js",
-	{method:"GET",credentials:"include"}).then(e=>e.ok?e.text():new Promise(e=>{e(!1)})));
+	{method:"GET"}).then(e=>e.ok?e.text():new Promise(e=>{e(!1)})));
 	Promise.all(R).then((r) => {
 		if(r.indexOf(false) !== -1) {
 			alert('오류남');
@@ -33,7 +33,7 @@ const _f2h0 = () => {
 				if (io !== _g2v3.length - 1) {
 					hr.f(YGH);
 				}
-				fetch(AVC + '/html/cn.html', { method: "GET", credentials: "include"}).then((res) => { if (res.ok) { return res.text(); } else { return new Promise((resolve) => { resolve(false); }); }}).then(resu0 => {
+				fetch(AVC + '/html/cn.html', {method: "GET"}).then((res) => { if (res.ok) { return res.text(); } else { return new Promise((resolve) => { resolve(false); }); }}).then(resu0 => {
 					if (resu0 === false) {
 						alert('오류남');
 						throw new Error('오류남');
@@ -99,7 +99,7 @@ const _f2h0 = () => {
 	if (Entry.playground?.mainWorkspace?.blockMenu?._generateCategoryElement){const fragment=document.createDocumentFragment();fragment.appendChild(Entry.playground.mainWorkspace.blockMenu._generateCategoryElement('Block2.0',true)[0]);let cdd=Entry.playground.mainWorkspace.blockMenu._categoryCol[0].querySelectorAll(".entryCategoryElementWorkspace");
 	Entry.playground.mainWorkspace.blockMenu._categoryCol[0].insertBefore(fragment, cdd[cdd.length - 1]);for (let i=0;i<$('.entryCategoryElementWorkspace').length;i++){if(!($($('.entryCategoryElementWorkspace')[i]).attr('id')=="entryCategorytext")){
 	$($('.entryCategoryElementWorkspace')[i]).attr('class','entryCategoryElementWorkspace');}}Entry.playground.blockMenu._categoryData=Entry.playground.blockMenu._categoryData.concat({"category":"Block2.0",blocks:blockArray});Entry.playground.blockMenu._generateCategoryCode('Block2.0');const entryCategory=document.getElementById("entryCategoryBlock2.0");
-	$('head').append(\`<style>[id='entryCategoryBlock2.0'] {background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img0.svg);background-repeat:no-repeat;margin-bottom:1px}.entrySelectedCategory[id='entryCategoryBlock2\\.0'] {background-image:url(https://raw.githack.com/1top10000/Block2.0/main/img/block2.0-img1.svg);background-color:#00FF98;color:#000000}</style>\`);
+	$('head').append(\`<style>[id='entryCategoryBlock2.0'] {background-image:url(https://playentry.org/uploads/a3/89/a3894366mshdccl3000609c952ccghpf.svg);background-repeat:no-repeat;margin-bottom:1px}.entrySelectedCategory[id='entryCategoryBlock2\\.0'] {background-image:url(https://playentry.org/uploads/5f/e7/5fe7779bmshdcjgb0001e7f1427d9hvo.svg);background-color:#00FF98;color:#000000}</style>\`);
 	entryCategory.append("Block2.0");}if(window["Block2.0"].pj){Entry.clearProject();Entry.loadProject(window["Block2.0"].pj);}let nN=Entry.aiUtilizeBlocks.filter((ele)=>{return ele.indexOf("Block2.0_")!= 0});nN[nN.length]="Block2.0_${_g2v3.at(-1)}";Entry.aiUtilizeBlocks=nN;}catch(e){alert('오류남:'+e);throw new Error("오류남:"+e);}`;
 									const scr = document.createElement('script');
 									scr.innerHTML = code;
